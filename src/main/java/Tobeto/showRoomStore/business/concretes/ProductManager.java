@@ -82,4 +82,11 @@ public class ProductManager implements IProductService {
 
         return new  SuccessDataResult<Product>("İstenilen Değer Bulundu : ", this.productRepository.getReferenceById(id));
     }
+
+    @Override
+    public DataResult<List<Product>> getByProductName(String name) {
+
+
+        return new SuccessDataResult<List<Product>>("Ürün Başarı ile bulundu", this.productRepository.getByProductName(name));
+    }
 }

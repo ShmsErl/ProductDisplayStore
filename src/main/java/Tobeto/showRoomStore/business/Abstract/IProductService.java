@@ -9,11 +9,11 @@ import java.util.List;
 public interface IProductService {
 
     DataResult<List<Product>> getAllProduct();
-
     Result createNewProduct(Product product);
     Result updateProduct(int id ,Product  product);
     Result deleteProduct(int id);
     DataResult<Product> getElementById(int id);
+    DataResult<List<Product>> getByProductName(String name);
 
 
 }
