@@ -40,4 +40,10 @@ public class ProductController {
 
         return this.iProductService.deleteProduct(id);
     }
+
+    @GetMapping("getbyname")
+    public DataResult<List<Product>> getElementById(@RequestParam(value = "name",required = false) String name){
+
+        return this.iProductService.getByProductName(name);
+    }
 }
