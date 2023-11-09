@@ -46,6 +46,7 @@ public class ProductManager implements IProductService {
 
                      this.productRepository.save(createProduct);
 
+
         return new SuccessResult("Ürün Başarı İle Eklendi. ") ;
 
     }
@@ -54,7 +55,7 @@ public class ProductManager implements IProductService {
     public Result updateProduct(int id, Product product) {
         Product product1 = this.productRepository.getReferenceById(id);
 
-        product1
+        Product
                 .builder()
                 .id(product.getId())
                 .productName(product.getProductName())

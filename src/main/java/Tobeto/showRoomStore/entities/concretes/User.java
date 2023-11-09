@@ -30,7 +30,7 @@ public class User {
     private int age;
     @Column(name = "isActive")
     private  boolean isActive;
-    @Column(name = "authorizationStatus" )
+    @Column(name = "authorizationStatus")
     private boolean authorizationStatus;
 
 
