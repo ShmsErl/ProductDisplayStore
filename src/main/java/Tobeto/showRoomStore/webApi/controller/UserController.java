@@ -2,6 +2,8 @@ package Tobeto.showRoomStore.webApi.controller;
 import Tobeto.showRoomStore.business.Abstract.IUserService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
+import Tobeto.showRoomStore.dto.request.GetByIdRequests;
+import Tobeto.showRoomStore.dto.response.GetByIdResponses;
 import Tobeto.showRoomStore.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +41,11 @@ public class UserController {
             return  this.iUserService.update(id,user);
 
 
+        }
+        @GetMapping("/{id}")
+        public DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
+
+                return this.iUserService.GET_BY_ID_RESPONSES(getByIdRequests);
         }
 
 
