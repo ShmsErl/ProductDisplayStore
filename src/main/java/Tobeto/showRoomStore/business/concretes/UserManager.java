@@ -84,11 +84,13 @@ public class UserManager implements IUserService {
     public DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
         User user = this.iUserRepository.getReferenceById(getByIdRequests.getId());
         GetByIdResponses getByIdResponses = new GetByIdResponses();
-        getByIdResponses.setFirstName(user.getFirstName());
-        getByIdResponses.setLastName(user.getLastName());
-        getByIdResponses.setEMail(user.getEMail());
-        getByIdResponses.setCountry(user.getCountry());
-        getByIdResponses.setAge(user.getAge());
+        getByIdResponses.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .eMail(user.getEMail())
+                .country(user.getCountry())
+                .age(user.getAge()).build();
+
 
 
         return new SuccessDataResult<GetByIdResponses>("İşlem Başarılı", getByIdResponses);
