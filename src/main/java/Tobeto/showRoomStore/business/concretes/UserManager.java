@@ -6,6 +6,8 @@ import Tobeto.showRoomStore.core.utilities.result.Result;
 import Tobeto.showRoomStore.core.utilities.result.SuccessDataResult;
 import Tobeto.showRoomStore.core.utilities.result.SuccessResult;
 import Tobeto.showRoomStore.dataAccess.concretes.IUserRepository;
+import Tobeto.showRoomStore.dto.request.GetByIdRequests;
+import Tobeto.showRoomStore.dto.response.GetByIdResponses;
 import Tobeto.showRoomStore.entities.concretes.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +78,20 @@ public class UserManager implements IUserService {
 
         this.iUserRepository.save(updateUser);
         return new SuccessResult("Güncelleme Başarılı");
+    }
+
+    @Override
+    public DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
+        User user = this.iUserRepository.getReferenceById(getByIdRequests.getId());
+        GetByIdResponses getByIdResponses = new GetByIdResponses();
+        getByIdResponses.setFirstName(user.getFirstName());
+        getByIdResponses.setLastName(user.getLastName());
+        getByIdResponses.setEMail(user.getEMail());
+        getByIdResponses.setCountry(user.getCountry());
+        getByIdResponses.setAge(user.getAge());
+
+
+        return new SuccessDataResult<GetByIdResponses>("İşlem Başarılı", getByIdResponses);
     }
 
 
