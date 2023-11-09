@@ -2,6 +2,7 @@ package Tobeto.showRoomStore.business.Abstract;
 
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
+import Tobeto.showRoomStore.dto.request.CreateUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
 import Tobeto.showRoomStore.dto.response.GetByIdResponses;
 import Tobeto.showRoomStore.entities.concretes.User;
@@ -13,7 +14,7 @@ public interface IUserService {
 
     DataResult<List<User>> getAllUser() ;
 
-    Result add(User user);
+    Result add(CreateUsersRequests user);
 
     Result delete(int id);
 

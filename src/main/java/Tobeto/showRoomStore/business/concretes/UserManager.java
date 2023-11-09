@@ -6,6 +6,7 @@ import Tobeto.showRoomStore.core.utilities.result.Result;
 import Tobeto.showRoomStore.core.utilities.result.SuccessDataResult;
 import Tobeto.showRoomStore.core.utilities.result.SuccessResult;
 import Tobeto.showRoomStore.dataAccess.concretes.IUserRepository;
+import Tobeto.showRoomStore.dto.request.CreateUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
 import Tobeto.showRoomStore.dto.response.GetByIdResponses;
 import Tobeto.showRoomStore.entities.concretes.User;
@@ -32,20 +33,19 @@ public class UserManager implements IUserService {
     }
 
     @Override
-    public Result add(User user) {
+    public Result add(CreateUsersRequests user) {
+        User user1 = User.builder()
+              .firstName(user.getFirstName())
+              .lastName(user.getLastName())
+              .eMail(user.getEMail())
+              .password(user.getPassword())
+              .country(user.getCountry())
+              .age(user.getAge())
+              .build();
 
 
 
-        User user1 = new User();
-        user1.setId(user.getId());
-        user1.setFirstName(user.getFirstName());
-        user1.setLastName(user.getLastName());
-        user1.setEMail(user.getEMail());
-        user1.setPassword(user.getPassword());
-        user1.setCountry(user.getCountry());
-        user1.setAge(user.getAge());
-        user1.setActive(user.isActive());
-        user1.setAuthorizationStatus(user.isAuthorizationStatus());
+
 
 
         this.iUserRepository.save(user1);
