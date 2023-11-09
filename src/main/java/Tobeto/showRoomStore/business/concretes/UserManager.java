@@ -28,7 +28,7 @@ public class UserManager implements IUserService {
     public DataResult<List<User>> getAllUser() {
         List<User> user = this.iUserRepository.findAll();
         return new SuccessDataResult<List<User>>("İşlem Başarılı", user);
-        //return getAllUser;
+
     }
 
     @Override
@@ -83,8 +83,8 @@ public class UserManager implements IUserService {
     @Override
     public DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
         User user = this.iUserRepository.getReferenceById(getByIdRequests.getId());
-        GetByIdResponses getByIdResponses = new GetByIdResponses();
-        getByIdResponses.builder()
+        GetByIdResponses getByIdResponses ;
+       getByIdResponses=  GetByIdResponses.builder()
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .eMail(user.getEMail())
