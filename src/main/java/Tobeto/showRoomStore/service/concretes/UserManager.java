@@ -1,5 +1,6 @@
 package Tobeto.showRoomStore.service.concretes;
 
+import Tobeto.showRoomStore.dto.response.GetByIdUserResponses;
 import Tobeto.showRoomStore.mapper.user.UserMapperService;
 import Tobeto.showRoomStore.service.Abstract.IUserService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
@@ -12,7 +13,6 @@ import Tobeto.showRoomStore.dto.request.DeleteUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
 import Tobeto.showRoomStore.dto.request.UpdateUsersRequests;
 import Tobeto.showRoomStore.dto.response.GetAllUsersResponses;
-import Tobeto.showRoomStore.dto.response.GetByIdResponses;
 import Tobeto.showRoomStore.model.concretes.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -80,18 +80,13 @@ public class UserManager implements IUserService {
     }
 
     @Override
-    public DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
+    public DataResult<GetByIdUserResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
         User user = this.iUserRepository.getReferenceById(getByIdRequests.getId());
-        GetByIdResponses getByIdResponses;
-        getByIdResponses = GetByIdResponses.builder()
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .eMail(user.getEMail())
-                .country(user.getCountry())
-                .age(user.getAge()).build();
+        GetByIdUserResponses getByIdResponses = this.mapperService.forRequest().map(user, GetByIdUserResponses.class);
 
 
-        return new SuccessDataResult<GetByIdResponses>("İşlem Başarılı", getByIdResponses);
+
+        return new SuccessDataResult<GetByIdUserResponses>("İşlem Başarılı", getByIdResponses);
     }
 
 

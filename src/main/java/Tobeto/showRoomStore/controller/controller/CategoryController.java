@@ -3,7 +3,7 @@ package Tobeto.showRoomStore.controller.controller;
 import Tobeto.showRoomStore.dto.request.CreateCategoryRequest;
 import Tobeto.showRoomStore.dto.request.UpdateCategoryRequest;
 import Tobeto.showRoomStore.dto.response.GetAllCategoryResponse;
-import Tobeto.showRoomStore.dto.response.GetByIdResponses;
+import Tobeto.showRoomStore.dto.response.GetByIdCategoryResponse;
 import Tobeto.showRoomStore.service.Abstract.ICategoryService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
@@ -25,7 +25,7 @@ public class CategoryController {
         return this.iCategoryService.getAllCategory();
     }
     @GetMapping("/get/{id}")
-    public DataResult<GetByIdResponses> getByIdResponse(@PathVariable int id){
+    public DataResult<GetByIdCategoryResponse> getByIdResponse(@PathVariable int id){
 
         return this.iCategoryService.getElementById(id);
     }

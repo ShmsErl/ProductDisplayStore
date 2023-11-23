@@ -3,7 +3,7 @@ package Tobeto.showRoomStore.service.concretes;
 import Tobeto.showRoomStore.dto.request.CreateCategoryRequest;
 import Tobeto.showRoomStore.dto.request.UpdateCategoryRequest;
 import Tobeto.showRoomStore.dto.response.GetAllCategoryResponse;
-import Tobeto.showRoomStore.dto.response.GetByIdResponses;
+import Tobeto.showRoomStore.dto.response.GetByIdCategoryResponse;
 import Tobeto.showRoomStore.mapper.user.UserMapperService;
 import Tobeto.showRoomStore.service.Abstract.ICategoryService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
@@ -76,12 +76,12 @@ public class CategoryManager implements ICategoryService {
     }
 
     @Override
-    public DataResult<GetByIdResponses> getElementById(int id) {
+    public DataResult<GetByIdCategoryResponse> getElementById(int id) {
         Category category = this.categoryRepository.getReferenceById(id);
 
-       GetByIdResponses responses = this.mapperService.forResponse().map(category, GetByIdResponses.class);
+       GetByIdCategoryResponse responses = this.mapperService.forResponse().map(category, GetByIdCategoryResponse.class);
 
 
-        return new SuccessDataResult<GetByIdResponses>("Değer bulundu. ", responses);
+        return new SuccessDataResult<GetByIdCategoryResponse>("Değer bulundu. ", responses);
     }
 }

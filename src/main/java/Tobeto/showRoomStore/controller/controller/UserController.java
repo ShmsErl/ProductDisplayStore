@@ -2,12 +2,12 @@ package Tobeto.showRoomStore.controller.controller;
 import Tobeto.showRoomStore.dto.request.DeleteUsersRequests;
 import Tobeto.showRoomStore.dto.request.UpdateUsersRequests;
 import Tobeto.showRoomStore.dto.response.GetAllUsersResponses;
+import Tobeto.showRoomStore.dto.response.GetByIdUserResponses;
 import Tobeto.showRoomStore.service.Abstract.IUserService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
 import Tobeto.showRoomStore.dto.request.CreateUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
-import Tobeto.showRoomStore.dto.response.GetByIdResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +43,7 @@ public class UserController {
 
         }
         @GetMapping("/{id}")
-        public DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
+        public DataResult<GetByIdUserResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests) {
 
                 return this.iUserService.GET_BY_ID_RESPONSES(getByIdRequests);
         }

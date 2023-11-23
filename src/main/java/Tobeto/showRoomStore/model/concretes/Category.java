@@ -2,6 +2,7 @@ package Tobeto.showRoomStore.model.concretes;
 
 import Tobeto.showRoomStore.model.concretes.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class Category {
     private boolean isActive;
     @OneToMany(mappedBy = "category")
     @JsonManagedReference
+    @JsonIgnore
     private List<Product> products;
 
 

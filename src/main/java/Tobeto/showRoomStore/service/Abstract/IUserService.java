@@ -7,7 +7,7 @@ import Tobeto.showRoomStore.dto.request.DeleteUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
 import Tobeto.showRoomStore.dto.request.UpdateUsersRequests;
 import Tobeto.showRoomStore.dto.response.GetAllUsersResponses;
-import Tobeto.showRoomStore.dto.response.GetByIdResponses;
+import Tobeto.showRoomStore.dto.response.GetByIdUserResponses;
 
 import java.util.List;
 
@@ -22,6 +22,6 @@ public interface IUserService {
 
     Result update(int id, UpdateUsersRequests updateUsersRequests);
 
-    DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests);
+    DataResult<GetByIdUserResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests);
 
 }
