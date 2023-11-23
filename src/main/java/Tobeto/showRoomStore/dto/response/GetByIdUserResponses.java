@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class GetByIdResponses {
+public class GetByIdUserResponses {
 
     private String firstName;
     private String lastName;

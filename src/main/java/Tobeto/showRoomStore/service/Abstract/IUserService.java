@@ -1,24 +1,26 @@
-package Tobeto.showRoomStore.business.Abstract;
+package Tobeto.showRoomStore.service.Abstract;
 
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
 import Tobeto.showRoomStore.dto.request.CreateUsersRequests;
+import Tobeto.showRoomStore.dto.request.DeleteUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
+import Tobeto.showRoomStore.dto.request.UpdateUsersRequests;
+import Tobeto.showRoomStore.dto.response.GetAllUsersResponses;
 import Tobeto.showRoomStore.dto.response.GetByIdResponses;
-import Tobeto.showRoomStore.entities.concretes.User;
 
 import java.util.List;
 
 public interface IUserService {
 
 
-    DataResult<List<User>> getAllUser() ;
+    DataResult<List<GetAllUsersResponses>> getAllUser() ;
 
     Result add(CreateUsersRequests user);
 
-    Result delete(int id);
+    Result delete(DeleteUsersRequests deleteUsersRequests) throws Exception;
 
-    Result update(int id,User user);
+    Result update(int id, UpdateUsersRequests updateUsersRequests);
 
     DataResult<GetByIdResponses> GET_BY_ID_RESPONSES(GetByIdRequests getByIdRequests);
 

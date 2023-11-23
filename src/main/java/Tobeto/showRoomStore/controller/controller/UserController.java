@@ -1,20 +1,20 @@
-package Tobeto.showRoomStore.webApi.controller;
-import Tobeto.showRoomStore.business.Abstract.IUserService;
+package Tobeto.showRoomStore.controller.controller;
+import Tobeto.showRoomStore.dto.request.DeleteUsersRequests;
+import Tobeto.showRoomStore.dto.request.UpdateUsersRequests;
+import Tobeto.showRoomStore.dto.response.GetAllUsersResponses;
+import Tobeto.showRoomStore.service.Abstract.IUserService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
+import Tobeto.showRoomStore.dto.request.CreateUsersRequests;
 import Tobeto.showRoomStore.dto.request.GetByIdRequests;
 import Tobeto.showRoomStore.dto.response.GetByIdResponses;
-import Tobeto.showRoomStore.entities.concretes.User;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/users")
+@RequestMapping("/api/v1/users")
 //@AllArgsConstructor
 @RequiredArgsConstructor
 public class UserController {
@@ -23,22 +23,22 @@ public class UserController {
 
 
         @GetMapping("/getAll")
-        public DataResult<List<User>> getAllUser() {
+        public DataResult<List<GetAllUsersResponses>> getAllUser() {
             return this.iUserService.getAllUser();
         }
 
         @PostMapping()
-        public Result add(@RequestBody User user) {
+        public Result add(@RequestBody CreateUsersRequests user) {
             return this.iUserService.add(user);
         }
 
         @DeleteMapping("/{id}")
-        public Result delete(@PathVariable int id) {
-            return this.iUserService.delete( id);
+        public Result delete(@PathVariable DeleteUsersRequests deleteUsersRequests) throws Exception {
+            return this.iUserService.delete(deleteUsersRequests);
         }
         @PutMapping("/{id}")
-        public Result update(@PathVariable int id, @RequestBody User user){
-            return  this.iUserService.update(id,user);
+        public Result update(@PathVariable int id, @RequestBody UpdateUsersRequests updateUsersRequests){
+            return  this.iUserService.update(id,updateUsersRequests);
 
 
         }

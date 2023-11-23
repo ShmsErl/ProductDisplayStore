@@ -1,9 +1,9 @@
-package Tobeto.showRoomStore.webApi.controller;
+package Tobeto.showRoomStore.controller.controller;
 
-import Tobeto.showRoomStore.business.Abstract.IProductService;
+import Tobeto.showRoomStore.service.Abstract.IProductService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
-import Tobeto.showRoomStore.entities.concretes.Product;
+import Tobeto.showRoomStore.model.concretes.Product;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

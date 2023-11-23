@@ -1,4 +1,4 @@
-package Tobeto.showRoomStore.entities.concretes;
+package Tobeto.showRoomStore.model.concretes;
 
 import jakarta.persistence.*;
 import lombok.*;

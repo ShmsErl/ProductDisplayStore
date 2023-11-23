@@ -1,6 +1,6 @@
-package Tobeto.showRoomStore.dataAccess.concretes;
+package Tobeto.showRoomStore.repository.concretes;
 
-import Tobeto.showRoomStore.entities.concretes.Product;
+import Tobeto.showRoomStore.model.concretes.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

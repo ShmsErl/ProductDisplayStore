@@ -1,18 +1,13 @@
-package Tobeto.showRoomStore.business.concretes;
+package Tobeto.showRoomStore.service.concretes;
 
-import Tobeto.showRoomStore.business.Abstract.IProductService;
-import Tobeto.showRoomStore.business.Abstract.IUserService;
+import Tobeto.showRoomStore.service.Abstract.IProductService;
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
 import Tobeto.showRoomStore.core.utilities.result.SuccessDataResult;
 import Tobeto.showRoomStore.core.utilities.result.SuccessResult;
-import Tobeto.showRoomStore.dataAccess.concretes.IUserRepository;
-import Tobeto.showRoomStore.dataAccess.concretes.ProductRepository;
-import Tobeto.showRoomStore.entities.concretes.Category;
-import Tobeto.showRoomStore.entities.concretes.Product;
-import Tobeto.showRoomStore.entities.concretes.User;
+import Tobeto.showRoomStore.repository.concretes.ProductRepository;
+import Tobeto.showRoomStore.model.concretes.Product;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,7 +32,7 @@ public class ProductManager implements IProductService {
                         .builder()
                         .id(product.getId())
                         .productName(product.getProductName())
-                        .quantity(product.getProductQuantity())
+                        .productQuantity(product.getProductQuantity())
                         .unitPrice(product.getUnitPrice())
                         .imgUri(product.getImgUri())
                         .description(product.getDescription())
@@ -59,7 +54,7 @@ public class ProductManager implements IProductService {
                 .builder()
                 .id(product.getId())
                 .productName(product.getProductName())
-                .quantity(product.getProductQuantity())
+                .productQuantity(product.getProductQuantity())
                 .unitPrice(product.getUnitPrice())
                 .imgUri(product.getImgUri())
                 .description(product.getDescription())

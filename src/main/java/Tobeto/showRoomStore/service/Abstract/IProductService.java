@@ -1,8 +1,8 @@
-package Tobeto.showRoomStore.business.Abstract;
+package Tobeto.showRoomStore.service.Abstract;
 
 import Tobeto.showRoomStore.core.utilities.result.DataResult;
 import Tobeto.showRoomStore.core.utilities.result.Result;
-import Tobeto.showRoomStore.entities.concretes.Product;
+import Tobeto.showRoomStore.model.concretes.Product;
 
 import java.util.List;
 
